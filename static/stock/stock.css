@@ -1,0 +1,272 @@
+
+body {
+  margin: 0;
+  padding: 0;
+ 
+  
+  background-color:#efefef;
+}
+
+.background-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.025); /* Replace with your desired color and opacity */
+z-index: -1;
+}
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    margin-top: 30px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin-bottom: 5px;
+  }
+
+  form {
+    margin-top: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"] {
+    width: 200px;
+    padding: 5px;
+  }
+
+  select {
+    width: 200px;
+    padding: 5px;
+  }
+
+  input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #b3b4be;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  tr:nth-child(even) {
+    background-color: #bebdbd;
+  }
+ /* body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f2f2f2;
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  select,
+  input[type="text"],
+  input[type="submit"] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  select {
+    width: 250px;
+  }
+
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+  }
+
+  th,
+  td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f9f9f9;
+    color: #333;
+  }*/
+
+  #item-search-input {
+    position: relative;
+  }
+
+  #item-suggestions {
+    display: none;
+    position: absolute;
+    background-color: #626262fd;
+    border: 1px solid #ddd;
+    border-top: none;
+    width: 200px;
+    max-height: 150px;
+    overflow-y: auto;
+    color: #fff;
+    z-index: 1;
+    margin-top: -5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  #item-suggestions li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #item-suggestions li:hover {
+    background-color: #7b7b7b;
+    color: rgb(12, 12, 12);
+  }
+
+  #student-search-input {
+    position: relative;
+  }
+
+  #student-suggestions {
+    display: none;
+    position: absolute;
+    background-color: #626262fd;
+    border: 1px solid #5a5858;
+    border-top: none;
+    width: 200px;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1;
+    color: #fff;
+    margin-top: -5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  #student-suggestions li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #student-suggestions li:hover {
+    background-color: #8d8b8b;
+    color: rgb(12, 12, 12);
+  }
+  .div-container {
+    display: flex;
+    justify-content: center;
+  }
+  .card {
+     /* White color with 80% transparency */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+    padding: 20px;
+  }
+  .card-header {
+   
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .flash-message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    border: 1px solid;
+    margin: 10px 0;
+  }
+
+  .flash-success {
+    background-color: #dff0d8; /* Light green color for success message */
+    color: #3c763d; /* Dark green color for success message text */
+  }
+   .flash-warning {
+        background-color: #f0d8d8; /* Light green color for success message */
+        color: #ed0303; /* Dark green color for success message text */
+  }
+  .flash-error {
+    background-color: #d2acd1; /* Light green color for success message */
+    color: #db0505; /* Dark green color for success message text */
+  }
+
+
+  #picked-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#picked-items-table th,
+#picked-items-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#picked-items-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+#picked-items-table tr:hover {
+    background-color: #f5f5f5;
+}
+/* Hide the value when the class 'hidden-value' is present */
+/* Hide the value of the input field */
+

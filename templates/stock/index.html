@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Management System</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="../static/stock/stock.css">
+  
+</head>
+<body>
+  <div class="background-overlay"></div>
+  <div class="container mt-4">
+    <h1 class="text-center text-secondary">Stock Management System</h1>
+  
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash-message flash-{{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  
+    <div class="card mt-4">
+      <div class="card-header">
+        <h5 class="mb-0"><i class="fas fa-shopping-cart"></i> Pick Item</h5>
+      </div>
+      <div class="card-body">
+        <form method="POST" action="/pick_item">
+          <div class="form-group" id="student-search-input">
+            <label for="student-name-input"><i class="fas fa-user"></i> Student Name:</label>
+            <div class="input-group">
+              <input type="text" class="form-control" name="student_name" placeholder="Enter student name">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary fetch-students" type="button"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+            <ul id="student-suggestions" class="list-group mt-2"></ul>
+          </div>
+  
+          <div class="form-group" id="item-search-input">
+            <label for="item-search-input"><i class="fas fa-box"></i> Item Name:</label>
+            
+            <div class="input-group ">
+              <input type="text" class="form-control" name="item_name" placeholder="Enter item name">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary fetch-items" type="button"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+            <ul id="item-suggestions" class="list-group mt-2"></ul>
+          </div>
+  
+          <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Pick Item</button>
+        </form>
+      </div>
+    </div>
+  
+    <div id="picked-items-container" class="mt-4" style="display: none;">
+      <h3 class="mb-3"><i class="fas fa-check-circle"></i> Picked Items for <span id="selected-student"></span>:</h3>
+    
+       
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Pick Date</th>
+          </tr>
+        </thead>
+        <tbody id="picked-items-list"></tbody>
+      </table>
+    </div>
+  </div>
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="../static/stock/stock.js"></script>
+</body>
+</html>
+
+

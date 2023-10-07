@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Management System</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="../static/stock/stock.css">
+  <style>
+    .flash-message {
+      padding: 10px;
+      
+      margin: 10px 0;
+    }
+    .hidden-value {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mt-4">
+    <h1 class="text-center">Stock Management System</h1>
+  
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash-message alert alert-{{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+  
+    <div class="card mt-4">
+      <div class="card-header">
+        <h5 class="mb-0">Pick Item</h5>
+      </div>
+      <div class="card-body">
+        <form id="item-details-form" action="/insert_item" method="POST">
+          <div class="form-group" id="item-search-input">
+            <label for="item-search-input"><i class="fas fa-search"></i> Item Name:</label>
+            <div class="input-group">
+              <input type="text" class="form-control" name="item_name" placeholder="Enter item name" id="item-search-input">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="fetch-items"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+            <ul id="item-suggestions" class="list-group mt-2"></ul>
+          </div>
+  
+          <div class="form-group">
+            <i class="fas fa-plus"></i> New Quantity:
+            <div class="input-group">
+              <input type="number" class="form-control" id="item-quantity-item" name="quantity" placeholder="Add new quantity">
+              <div class="input-group-append">
+                <span class="input-group-text">:</span>
+              </div>
+              <input type="number" class="form-control" id="item-quantity" placeholder="Original quantity">
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="item-days">
+              <i class="fas fa-calendar"></i> Days to Next Pick:
+            </label>
+            <input type="number" class="form-control" id="item-days" name="days_to_next_pick">
+          </div>
+  
+          <div class="form-group">
+            <label for="item-threshold"><i class="fas fa-sort-amount-up"></i> Quantity Threshold:</label>
+            <input type="number" class="form-control" id="item-threshold" name="quantity_threshold">
+          </div>
+  
+          <button type="submit" class="btn btn-primary" id="pick-item-button"> <i class="fas fa-check"></i> Insert/Update Item</button>
+          <button type="reset" class="btn btn-danger ml-2">
+            <i class="fas fa-undo-alt"></i> Reset
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="../static/stock/stock.js"></script>
+</body>
+</html>
